@@ -27,9 +27,9 @@
         run: | 
           cp ${{github.action_path}}/setting.xml ~/.m2/settings.xml
 
-          sed -i "s#@@REPOSITORY_BASE@@#${{input.repository-base}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_USERNAME@@#${{input.username}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_PASSWORD@@#${{input.password}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_MIRROR@@#${{input.mirror-url}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_RELEASE_REPO@@#${{input.release-url}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_SNAPSHOT_REPO@@#${{input.snapshot-url}}#g" ~/.m2/settings.xml
+          sed -i "s#@@REPOSITORY_BASE@@#${{inputs.repository-base}}#g" ~/.m2/settings.xml
+          sed -i "s#@@MAVEN_USERNAME@@#${{inputs.username}}#g" ~/.m2/settings.xml
+          sed -i "s#@@MAVEN_PASSWORD@@#${{inputs.password}}#g" ~/.m2/settings.xml
+          sed -i "s#@@MAVEN_MIRROR@@#${{inputs.mirror-url}}#g" ~/.m2/settings.xml
+          sed -i "s#@@MAVEN_RELEASE_REPO@@#${{inputs.release-url}}#g" ~/.m2/settings.xml
+          sed -i "s#@@MAVEN_SNAPSHOT_REPO@@#${{inputs.snapshot-url}}#g" ~/.m2/settings.xml
