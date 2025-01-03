@@ -117,60 +117,60 @@ runs:
 
         # Debian
         echo "debian-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-debian-dev" >> $GITHUB_OUTPUT
-        
+
         # Docker
         echo "docker-snapshot-image-base=$ARTIFACTORY_BASE/$TEAM-docker-snapshot-local/$DOCKER_NAMESPACE/$APPLICATION_NAME" >> $GITHUB_OUTPUT
         echo "docker-release-image-base=$ARTIFACTORY_BASE/$TEAM-docker-release-local/$DOCKER_NAMESPACE/$APPLICATION_NAME" >> $GITHUB_OUTPUT
         echo "docker-registry=$ARTIFACTORY_BASE/$TEAM-docker-dev" >> $GITHUB_OUTPUT
-        
+
         # Helm
         echo "helm-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-helm-dev" >> $GITHUB_OUTPUT
-        
+
         # Maven
         echo "maven-snapshot-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-snapshot-local" >> $GITHUB_OUTPUT
         echo "maven-release-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-release-local" >> $GITHUB_OUTPUT
         echo "maven-mirror-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-dev" >> $GITHUB_OUTPUT
-        
+
         # NPM
         echo "npm-snapshot-url=$ARTIFACTORY_BASE_URL/api/npm/$TEAM-npm-snapshot-local" >> $GITHUB_OUTPUT
         echo "npm-release-url=$ARTIFACTORY_BASE_URL/api/npm/$TEAM-npm-release-local" >> $GITHUB_OUTPUT
         echo "npm-registry-url=$ARTIFACTORY_BASE_URL/api/npm/$TEAM-npm-dev" >> $GITHUB_OUTPUT
-        
+
         # NuGet
         echo "nuget-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-nuget-dev" >> $GITHUB_OUTPUT
         echo "nuget-repository-url_v3=$ARTIFACTORY_BASE_URL/api/nuget/v3/$TEAM-nuget-dev" >> $GITHUB_OUTPUT
-        
+
         # PyPi
         PYPI_BASE_URL="https://$ARTIFACTORY_USERNAME:$ARTIFACTORY_API_KEY@$ARTIFACTORY_BASE/artifactory"
         echo "pypi-snapshot-url=$ARTIFACTORY_BASE_URL/api/pypi/$TEAM-pypi-snapshot-local" >> $GITHUB_OUTPUT
         echo "pypi-release-url=$ARTIFACTORY_BASE_URL/api/pypi/$TEAM-pypi-release-local" >> $GITHUB_OUTPUT
         echo "pypi-index-url=$PYPI_BASE_URL/api/pypi/$TEAM-pypi-dev/simple" >> $GITHUB_OUTPUT
-        
+
         case $GITHUB_EVENT_NAME in
           pull_request)
             GIT_REF=$GITHUB_BASE_REF
             ;;
           *)
-        case $GITHUB_REF in
-          refs/tags/v*)
-            GIT_REF=${GITHUB_REF#refs/tags/v}
-            ;;
-          refs/heads/*)
-            GIT_REF=${GITHUB_REF#refs/heads/}
-            ;;
-          *)
-            echo "Unhandled GITHUB_REF=$GITHUB_REF, exiting"
-            exit 1
+            case $GITHUB_REF in
+              refs/tags/v*)
+                GIT_REF=${GITHUB_REF#refs/tags/v}
+                ;;
+              refs/heads/*)
+                GIT_REF=${GITHUB_REF#refs/heads/}
+                ;;
+              *)
+                echo "Unhandled GITHUB_REF=$GITHUB_REF, exiting"
+                exit 1
+                ;;
+            esac
             ;;
         esac
-        ;;
-      esac
 
-      DOCKER_REF_TAG="${GIT_REF//[\/]/-}"
-      echo "docker-ref-tag=$DOCKER_REF_TAG" >> $GITHUB_OUTPUT
-      DOCKER_SHA_TAG="${GITHUB_SHA:0:7}"
-      echo "docker-sha-tag=$DOCKER_SHA_TAG" >> $GITHUB_OUTPUT
-      DOCKER_BUILD_TAG="$DOCKER_REF_TAG-$DOCKER_SHA_TAG-$(date +%Y%m%d)-$GITHUB_RUN_NUMBER"
-      echo "docker-build-tag=$DOCKER_BUILD_TAG" >> $GITHUB_OUTPUT
-      [ -z "$KEYSYSTEM" ] && KEYSYSTEM='aigi'
-      echo "docker-label-keysystem=$KEYSYSTEM" >> $GITHUB_OUTPUT
+        DOCKER_REF_TAG="${GIT_REF//[\/]/-}"
+        echo "docker-ref-tag=$DOCKER_REF_TAG" >> $GITHUB_OUTPUT
+        DOCKER_SHA_TAG="${GITHUB_SHA:0:7}"
+        echo "docker-sha-tag=$DOCKER_SHA_TAG" >> $GITHUB_OUTPUT
+        DOCKER_BUILD_TAG="$DOCKER_REF_TAG-$DOCKER_SHA_TAG-$(date +%Y%m%d)-$GITHUB_RUN_NUMBER"
+        echo "docker-build-tag=$DOCKER_BUILD_TAG" >> $GITHUB_OUTPUT
+        [ -z "$KEYSYSTEM" ] && KEYSYSTEM='aigi'
+        echo "docker-label-keysystem=$KEYSYSTEM" >> $GITHUB_OUTPUT
