@@ -5,7 +5,7 @@ on:
       dotenv-path:
         required: false
         type: string
-        default: ".github/.env"
+        default: '.github/.env'
       always-publish:
         required: false
         type: boolean
@@ -25,11 +25,11 @@ on:
       jib-from-image:
         required: false
         type: string
-        default: "eclipse-temurin:17-jre-jammy"
+        default: 'eclipse-temurin:17-jre-jammy'
       jfrog-cli-version:
         required: false
         type: string
-        default: "latest"
+        default: 'latest'
       jfrog-ci-watch:
         required: false
         type: string
@@ -45,7 +45,7 @@ on:
       sonar-scan-dir:
         required: false
         type: string
-        default: "target/classes"
+        default: 'target/classes'
       timeout-minutes:
         required: false
         type: number
