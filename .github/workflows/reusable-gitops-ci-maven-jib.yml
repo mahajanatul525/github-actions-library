@@ -86,7 +86,7 @@ jobs:
         log-variables: true
     - name: Configure Workflow Environment
       id: config
-      uses: github-actions-library/configure-workflow@v1.20.8
+      uses: mahajanatul525/github-actions-library/configure-workflow@master
       with:
         team: ${{ steps.props.outputs.team }}
         keysystem: ${{ steps.props.outputs.keysystem }}
@@ -103,7 +103,7 @@ jobs:
         cache: maven
     - name: Configure Maven Environment
       id: configure-maven
-      uses: aigi-ea-github-actions-library/configure-maven@v1.20.0
+      uses: mahajanatul525/github-actions-library/configure-maven@master
       with:
         repository-base: ${{ steps.config.outputs.artifactory-base }}
         mirror-url: ${{ steps.config.outputs.maven-mirror-url}}
