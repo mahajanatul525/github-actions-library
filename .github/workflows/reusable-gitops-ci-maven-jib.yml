@@ -114,7 +114,7 @@ jobs:
     - name: Build & Test
       id: build-and-test
       run: | 
-        mvn -B -V -e -Dstyle.color always ${{ inputs.ci-build-args }} jib:dockerBuild \
+        mvn -B -V -e -Dstyle.color=always ${{ inputs.ci-build-args }} jib:dockerBuild \
         -Djib.container labels="keysystem=${{ steps.config.outputs.docker-label-keysystem }}, owner=${{ steps.config.outputs.docker-label-keysystem}}" \
         -Djib.from.image=${{ steps.config.outputs.docker-registry }}/${{ inputs.jib-from-image }} \
         -Djib.to.image ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
