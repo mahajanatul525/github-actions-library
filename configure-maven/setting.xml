@@ -51,7 +51,7 @@
                 <maven.snapshots.url>@@MAVEN_SNAPSHOT_REPO@@</maven.snapshots.url>
             </properties>
             <repositories>
-                <repository>
+                <!-- <repository>
                     <id>maven-releases</id>
                     <name>Maven releases</name>
                     <url>${maven.releases.url}</url>
@@ -72,7 +72,7 @@
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
-                </repository>
+                </repository> -->
             </repositories>
         </profile>
         <profile>
