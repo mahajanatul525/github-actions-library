@@ -14,7 +14,7 @@
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
         <server>
-            <id>maven-releases.archinsurance.com</id>
+            <id>maven-releases.mydomaininsurance.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
@@ -24,7 +24,7 @@
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
         <server>
-            <id>maven-snapshots.archinsurance.com</id>
+            <id>maven-snapshots.mydomaininsurance.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
@@ -82,7 +82,7 @@
             </activation>
             <properties>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-                <sonar.organization>arch</sonar.organization>
+                <sonar.organization>mydomain</sonar.organization>
             </properties>
         </profile>
     </profiles>

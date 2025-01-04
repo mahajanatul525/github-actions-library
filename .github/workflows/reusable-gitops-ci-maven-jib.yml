@@ -161,8 +161,8 @@ jobs:
         SONAR_HOST_URL: https://sonarcloud.io
       with:
         args: >
-          -Dsonar.organization=arch-insurance-na
-          -Dsonar.projectKey=Arch-Insurance-NA_${{ steps.props.outputs.team }}-${{ steps.props.outputs.application_name}} 
+          -Dsonar.organization=mydomain-insurance-na
+          -Dsonar.projectKey=mydomain-Insurance-NA_${{ steps.props.outputs.team }}-${{ steps.props.outputs.application_name}} 
           -Dsonar.projectName=${{ steps.props.outputs.team }}-${{ steps.props.outputs.application_name }}
           -Dsonar.qualitygate.wait=${{ inputs.sonar-qualitygate-wait }}
           -Dsonar.java.binaries=${{ inputs.sonar-scan-dir}}

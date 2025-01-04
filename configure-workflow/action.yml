@@ -109,7 +109,7 @@ runs:
         DEPLOYMENT_REPO: ${{ inputs.deployment-repo }}
       run: |
         # Artifactory
-        ARTIFACTORY_BASE="archinsurance.jfrog.io"
+        ARTIFACTORY_BASE="trialg9tz1l.jfrog.io"
         ARTIFACTORY_BASE_URL="https://$ARTIFACTORY_BASE/artifactory"
         echo "artifactory-base=$ARTIFACTORY_BASE" >> $GITHUB_OUTPUT
         echo "artifactory-username=$ARTIFACTORY_USERNAME" >> $GITHUB_OUTPUT
