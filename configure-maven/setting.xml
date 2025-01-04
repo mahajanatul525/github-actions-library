@@ -13,21 +13,21 @@
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
-        <server>
+        <!-- <server>
             <id>maven-releases.mydomaininsurance.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
-        </server>
+        </server> -->
         <server>
             <id>maven-snapshots</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
-        <server>
+        <!-- <server>
             <id>maven-snapshots.mydomaininsurance.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
-        </server>
+        </server> -->
     </servers>
     <mirrors>
         <mirror>
