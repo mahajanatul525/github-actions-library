@@ -13,21 +13,21 @@
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
-        <!-- <server>
-            <id>maven-releases.mydomaininsurance.com</id>
+        <server>
+            <id>maven-releases.mydomain.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
-        </server> -->
+        </server>
         <server>
             <id>maven-snapshots</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
         </server>
-        <!-- <server>
-            <id>maven-snapshots.mydomaininsurance.com</id>
+        <server>
+            <id>maven-snapshots.mydomain.com</id>
             <username>@@MAVEN_USERNAME@@</username>
             <password>@@MAVEN_PASSWORD@@</password>
-        </server> -->
+        </server>
     </servers>
     <mirrors>
         <mirror>
@@ -38,6 +38,7 @@
         </mirror>
     </mirrors>
     <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
     </pluginGroups>
     <profiles>
         <profile>
@@ -73,6 +74,16 @@
                     </snapshots>
                 </repository>
             </repositories>
+        </profile>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+                <sonar.organization>arch</sonar.organization>
+            </properties>
         </profile>
     </profiles>
 </settings>
