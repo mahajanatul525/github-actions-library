@@ -1,50 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
     <servers>
         <server>
-            <id>@@REPOSITORY_BASE@@</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
-        </server>
-        <server>
             <id>maven-releases</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <username>mahajanneha525@gmail.com</username>
+            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
         </server>
         <server>
-            <id>maven-snapshots</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <id>maven-central</id>
+          <username>mahajanneha525@gmail.com</username>
+            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
+        </server>
+        <server>
+            <id>maven-repo</id>
+           <username>mahajanneha525@gmail.com</username>
+            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
         </server>
     </servers>
-    <mirrors>
-        <mirror>
-            <id>@@REPOSITORY_BASE@@</id>
-            <name>Maven Mirror</name>
-            <url>@@MAVEN_MIRROR@@</url>
-            <mirrorOf>*</mirrorOf>
-        </mirror>
-    </mirrors>
-    <pluginGroups>
-        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
-    </pluginGroups>
     <profiles>
         <profile>
-            <id>@@REPOSITORY_BASE@@</id>
+            <id>jfrog-profile</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
-            <properties>
-                <maven.releases.url>@@MAVEN_RELEASE_REPO@@</maven.releases.url>
-                <maven.snapshots.url>@@MAVEN_SNAPSHOT_REPO@@</maven.snapshots.url>
-            </properties>
             <repositories>
                 <repository>
                     <id>maven-releases</id>
-                    <name>Maven releases</name>
-                    <url>${maven.releases.url}</url>
+                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -53,27 +36,26 @@
                     </snapshots>
                 </repository>
                 <repository>
-                    <id>maven-snapshots</id>
-                    <name>Maven snapshot</name>
-                    <url>${maven.snapshots.url}</url>
+                    <id>maven-central</id>
+                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-central</url>
                     <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
                         <enabled>false</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>maven-repo</id>
+                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-repo</url>
+                    <releases>
+                        <enabled>true</enabled>
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
             </repositories>
-        </profile>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-                <sonar.organization>archi</sonar.organization>
-            </properties>
         </profile>
     </profiles>
 </settings>
