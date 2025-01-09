@@ -119,17 +119,17 @@ runs:
         echo "debian-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-debian-dev" >> $GITHUB_OUTPUT
 
         # Docker
-        echo "docker-snapshot-image-base=$ARTIFACTORY_BASE/$TEAM-docker-snapshot-local/$DOCKER_NAMESPACE/$APPLICATION_NAME" >> $GITHUB_OUTPUT
-        echo "docker-release-image-base=$ARTIFACTORY_BASE/$TEAM-docker-release-local/$DOCKER_NAMESPACE/$APPLICATION_NAME" >> $GITHUB_OUTPUT
-        echo "docker-registry=$ARTIFACTORY_BASE/$TEAM-docker-dev" >> $GITHUB_OUTPUT
+        echo "docker-snapshot-image-base=https://trialg9tz1l.jfrog.io/artifactory/api/docker/docker-snapshot-local" >> $GITHUB_OUTPUT
+        echo "docker-release-image-base=https://trialg9tz1l.jfrog.io/artifactory/api/docker/docker-realease-base" >> $GITHUB_OUTPUT
+        echo "docker-registry=https://trialg9tz1l.jfrog.io/artifactory/api/docker/docker-dev" >> $GITHUB_OUTPUT
 
         # Helm
         echo "helm-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-helm-dev" >> $GITHUB_OUTPUT
 
         # Maven
-        echo "maven-snapshot-url=https://s01.oss.sonatype.org/content/repositories/snapshots/" >> $GITHUB_OUTPUT
-        echo "maven-release-url=https://repo.maven.apache.org/maven2" >> $GITHUB_OUTPUT
-        echo "maven-mirror-url=https://repo1.maven.org/maven2" >> $GITHUB_OUTPUT
+        echo "maven-snapshot-url=https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-snapshot-local/" >> $GITHUB_OUTPUT
+        echo "maven-release-url=https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases" >> $GITHUB_OUTPUT
+        echo "maven-mirror-url=https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases" >> $GITHUB_OUTPUT
 
         # NPM
         echo "npm-snapshot-url=$ARTIFACTORY_BASE_URL/api/npm/$TEAM-npm-snapshot-local" >> $GITHUB_OUTPUT
