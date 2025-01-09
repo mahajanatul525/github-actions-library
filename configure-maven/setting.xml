@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.1.0"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
@@ -18,16 +19,32 @@
             <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
         </server>
     </servers>
+    <mirrors>
+        <mirror>
+            <id>maven-mirror</id>
+            <name>Maven Mirror</name>
+            <url>@@MAVEN_MIRROR@@</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
     <profiles>
         <profile>
-            <id>jfrog-profile</id>
+            <id>https://trialg9tz1l.jfrog.io</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <maven.releases.url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases</maven.releases.url>
+                <maven.snapshots.url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-central</maven.snapshots.url>
+            </properties>
             <repositories>
                 <repository>
                     <id>maven-releases</id>
-                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases</url>
+                    <name>Maven releases</name>
+                    <url>${maven.releases.url}</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>
@@ -36,26 +53,27 @@
                     </snapshots>
                 </repository>
                 <repository>
-                    <id>maven-central</id>
-                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-central</url>
+                    <id>maven-snapshots</id>
+                    <name>Maven snapshot</name>
+                    <url>${maven.snapshots.url}</url>
                     <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
                         <enabled>false</enabled>
-                    </snapshots>
-                </repository>
-                <repository>
-                    <id>maven-repo</id>
-                    <url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-repo</url>
-                    <releases>
-                        <enabled>true</enabled>
                     </releases>
                     <snapshots>
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
             </repositories>
+        </profile>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+                <sonar.organization>arch</sonar.organization>
+            </properties>
         </profile>
     </profiles>
 </settings>
