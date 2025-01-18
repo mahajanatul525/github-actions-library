@@ -4,24 +4,24 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
     <servers>
         <server>
+            <id>@@REPOSITORY_BASE@@</id>
+            <username>@@MAVEN_USERNAME@@</username>
+            <password>@@MAVEN_PASSWORD@@</password>
+        </server>
+        <server>
             <id>maven-releases</id>
-            <username>mahajanneha525@gmail.com</username>
-            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
+            <username>@@MAVEN_USERNAME@@</username>
+            <password>@@MAVEN_PASSWORD@@</password>
         </server>
         <server>
-            <id>maven-central</id>
-          <username>mahajanneha525@gmail.com</username>
-            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
-        </server>
-        <server>
-            <id>maven-repo</id>
-           <username>mahajanneha525@gmail.com</username>
-            <password>cmVmdGtuOjAxOjE3Njc5ODU1NjQ6SzdiZHZsdFV3akR3MkE3bWIyUVVEbHcySkxi</password>
+            <id>maven-snapshots</id>
+            <username>@@MAVEN_USERNAME@@</username>
+            <password>@@MAVEN_PASSWORD@@</password>
         </server>
     </servers>
     <mirrors>
         <mirror>
-            <id>maven-mirror</id>
+            <id>@@REPOSITORY_BASE@@</id>
             <name>Maven Mirror</name>
             <url>@@MAVEN_MIRROR@@</url>
             <mirrorOf>*</mirrorOf>
@@ -32,13 +32,13 @@
     </pluginGroups>
     <profiles>
         <profile>
-            <id>https://trialg9tz1l.jfrog.io</id>
+            <id>@@REPOSITORY_BASE@@</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven.releases.url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-releases</maven.releases.url>
-                <maven.snapshots.url>https://trialg9tz1l.jfrog.io/artifactory/api/maven/maven-central</maven.snapshots.url>
+                <maven.releases.url>@@MAVEN_RELEASE_REPO@@</maven.releases.url>
+                <maven.snapshots.url>@@MAVEN_SNAPSHOT_REPO@@</maven.snapshots.url>
             </properties>
             <repositories>
                 <repository>
@@ -72,7 +72,7 @@
             </activation>
             <properties>
                 <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-                <sonar.organization>arch</sonar.organization>
+                <sonar.organization>archi</sonar.organization>
             </properties>
         </profile>
     </profiles>
