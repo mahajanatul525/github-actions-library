@@ -102,10 +102,10 @@ runs:
       env:
         TEAM: aigi-dstores
         KEYSYSTEM: ${{ inputs.keysystem }}
-        APPLICATION_NAME: "fe-api"
-        DOCKER_NAMESPACE: "archinsurance/dstores/fe"
-        ARTIFACTORY_USERNAME: "mahajanatul525"
-        ARTIFACTORY_API_KEY: "Matul_525"
+        APPLICATION_NAME: ${{ inputs.application-name }}
+        DOCKER_NAMESPACE: ${{ inputs.docker-namespace }}
+        ARTIFACTORY_USERNAME: ${{ inputs.artifactory-username }}
+        ARTIFACTORY_API_KEY: ${{ inputs.artifactory-api-key }}
         DEPLOYMENT_REPO: ${{ inputs.deployment-repo }}
       run: |
         # Artifactory
@@ -129,9 +129,9 @@ runs:
         echo "helm-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-helm-dev" >> $GITHUB_OUTPUT
 
         # Maven
-        echo "maven-snapshot-url=https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-snapshot-local/" >> $GITHUB_OUTPUT
-        echo "maven-release-url=https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-release-local/" >> $GITHUB_OUTPUT
-        echo "maven-mirror-url=https://trialt6dmgx.jfrog.io/artifactory/aigi-dstore-maven-dev" >> $GITHUB_OUTPUT
+        echo "maven-snapshot-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-snapshot-local/" >> $GITHUB_OUTPUT
+        echo "maven-release-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-release-local/" >> $GITHUB_OUTPUT
+        echo "maven-mirror-url=$ARTIFACTORY_BASE_URL/$TEAM-maven-dev" >> $GITHUB_OUTPUT
 
         # NPM
         echo "npm-snapshot-url=$ARTIFACTORY_BASE_URL/api/npm/$TEAM-npm-snapshot-local" >> $GITHUB_OUTPUT
