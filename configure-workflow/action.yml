@@ -104,8 +104,8 @@ runs:
         KEYSYSTEM: ${{ inputs.keysystem }}
         APPLICATION_NAME: ${{ inputs.application-name }}
         DOCKER_NAMESPACE: ${{ inputs.docker-namespace }}
-        ARTIFACTORY_USERNAME: mahajanatul525
-        ARTIFACTORY_API_KEY: Matul_525
+        ARTIFACTORY_USERNAME: ${{inputs.artifactory-username}}
+        ARTIFACTORY_API_KEY: ${{inputs.artifactory-api-key}}
         DEPLOYMENT_REPO: ${{ inputs.deployment-repo }}
       run: |
         # Artifactory
