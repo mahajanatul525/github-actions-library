@@ -4,19 +4,19 @@
           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd">
     <servers>
         <server>
-            <id>@@REPOSITORY_BASE@@</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <id>https://trialt6dmgx.jfrog.io</id>
+            <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
         <server>
             <id>maven-releases</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+             <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
         <server>
             <id>maven-snapshots</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
     </servers>
     <mirrors>
@@ -32,13 +32,13 @@
     </pluginGroups>
     <profiles>
         <profile>
-            <id>@@REPOSITORY_BASE@@</id>
+            <id>https://trialt6dmgx.jfrog.io</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <maven.releases.url>@@MAVEN_RELEASE_REPO@@</maven.releases.url>
-                <maven.snapshots.url>@@MAVEN_SNAPSHOT_REPO@@</maven.snapshots.url>
+                <maven.releases.url>https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-release-local/</maven.releases.url>
+                <maven.snapshots.url>https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-snapshot-local/</maven.snapshots.url>
             </properties>
             <repositories>
                 <repository>
