@@ -5,18 +5,18 @@
     <servers>
         <server>
             <id>@@REPOSITORY_BASE@@</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
         <server>
             <id>maven-releases</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+            <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
         <server>
             <id>maven-snapshots</id>
-            <username>@@MAVEN_USERNAME@@</username>
-            <password>@@MAVEN_PASSWORD@@</password>
+             <username>mahajanatul525</username>
+            <password>Matul_525</password>
         </server>
     </servers>
     <mirrors>
