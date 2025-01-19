@@ -130,9 +130,9 @@ jobs:
       id: publish-image
       env:
         SKOPEO_ARGS: --src-creds mahajanatul525:Matul_525 --dest-creds mahajanatul525:Matul_525
-        DOCKER_SNAPSHOT_SHA_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:latest
-        DOCKER_SNAPSHOT_REF_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:latest
-        DOCKER_SNAPSHOT_BUILD_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-release-local/arc/dstores/fe/fe-api:latest
+        DOCKER_SNAPSHOT_SHA_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/fe-api:latest
+        DOCKER_SNAPSHOT_REF_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/fe-api:latest
+        DOCKER_SNAPSHOT_BUILD_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-release-local/fe-api:latest
       run: |
         skopeo copy docker-daemon: $DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO ARGS
         skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
