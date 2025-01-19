@@ -116,6 +116,8 @@ runs:
         echo "artifactory-api-key=$ARTIFACTORY_API_KEY" >> "$GITHUB_OUTPUT"
 
         echo "DEBUG: ARTIFACTORY_BASE_URL=${ARTIFACTORY_BASE_URL}"
+        echo "DEBUG: ARTIFACTORY_USER_NAME=${ARTIFACTORY_USERNAME}"
+        echo "DEBUG: ARTIFACTORY_API_KEY=${ARTIFACTORY_API_KEY}"
         
         # Debian
         echo "debian-repository-url=${ARTIFACTORY_BASE_URL}/${TEAM}-debian-dev" >> "$GITHUB_OUTPUT"
