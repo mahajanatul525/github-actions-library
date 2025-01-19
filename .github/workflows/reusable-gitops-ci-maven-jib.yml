@@ -126,13 +126,13 @@ jobs:
         version: ${{ inputs.jfrog-cli-version }}
 
     - name: Publish Image
-      if: ${{ success() && env.PUBLISH_IMAGE == 'true'}}
+      if: ${{ success() && env.PUBLISH_IMAGE == 'true' }}
       id: publish-image
       env:
-        SKOPEO ARGS: --src-creds mahajanatul525:Matul_525 --dest-creds mahajanatul525:Matul_525
-        DOCKER SNAPSHOT_SHA_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-sha-tag}}
-        DOCKER SNAPSHOT_REF_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-ref-tag }}
-        DOCKER SNAPSHOT BUILD_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-release-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-build-tag}}
+        SKOPEO_ARGS: --src-creds mahajanatul525:Matul_525 --dest-creds mahajanatul525:Matul_525
+        DOCKER_SNAPSHOT_SHA_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-sha-tag }}
+        DOCKER_SNAPSHOT_REF_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-snapshot-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-ref-tag }}
+        DOCKER_SNAPSHOT_BUILD_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-release-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-build-tag }}
       run: |
         skopeo copy docker-daemon: $DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO ARGS
         skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
