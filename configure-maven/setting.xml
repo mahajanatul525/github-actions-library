@@ -18,6 +18,11 @@
             <username>mahajanatul525</username>
             <password>Matul_525</password>
         </server>
+         <server>
+            <id>jfrog</id>
+            <username>mahajanatul525</username>
+            <password>Matul_525</password>
+        </server>
     </servers>
     <mirrors>
         <mirror>
@@ -56,6 +61,17 @@
                     <id>maven-snapshots</id>
                     <name>Maven snapshot</name>
                     <url>${maven.snapshots.url}</url>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <repository>
+                    <id>jfrog</id>
+                    <name>jfrog</name>
+                    <url>https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-dev</url>
                     <releases>
                         <enabled>false</enabled>
                     </releases>
