@@ -135,8 +135,8 @@ jobs:
         DOCKER SNAPSHOT BUILD_TAG: trialt6dmgx.jfrog.io/aigi-dstores-docker-release-local/arc/dstores/fe/fe-api:${{ steps.config.outputs.docker-build-tag}}
       run: |
         skopeo copy docker-daemon: $DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO ARGS
-        skopeo copy docker://SDOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
-        skopeo copy docker://SDOCKER_SNAPSHOT_SHA_TAG docker://SDOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
+        skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
+        skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
     - name: Generate Deployment Token
       if: ${{ success() && env.PUBLISH_IMAGE=='true' }}
       uses: tibdex/github-app-token@v2
