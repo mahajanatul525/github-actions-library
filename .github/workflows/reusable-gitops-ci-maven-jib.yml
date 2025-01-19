@@ -9,11 +9,11 @@ on:
       always-publish:
         required: false
         type: boolean
-        default: false
+        default: true
       always-scan:
         required: false
         type: boolean
-        default: false
+        default: true
       ci-build-args:
         required: false
         type: string
