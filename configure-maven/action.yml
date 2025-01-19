@@ -25,11 +25,16 @@
       - name: Configure Maven
         shell: bash
         run: | 
-          cp ${{github.action_path}}/setting.xml ~/.m2/settings.xml
+          # Ensure .m2 directory exists
+          mkdir -p ~/.m2
 
-          sed -i "s#@@REPOSITORY_BASE@@#${{inputs.repository-base}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_USERNAME@@#${{inputs.username}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_PASSWORD@@#${{inputs.password}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_MIRROR@@#${{inputs.mirror-url}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_RELEASE_REPO@@#${{inputs.release-url}}#g" ~/.m2/settings.xml
-          sed -i "s#@@MAVEN_SNAPSHOT_REPO@@#${{inputs.snapshot-url}}#g" ~/.m2/settings.xml
+          # Copy and configure Maven settings.xml
+          cp ${{github.action_path}}/setting.xml ~/.m2/settings.xml
+          
+          # Replace placeholders with actual values
+          sed -i "s|@@REPOSITORY_BASE@@|${{inputs.repository-base}}|g" ~/.m2/settings.xml
+          sed -i "s|@@MAVEN_USERNAME@@|${{inputs.username}}|g" ~/.m2/settings.xml
+          sed -i "s|@@MAVEN_PASSWORD@@|${{inputs.password}}|g" ~/.m2/settings.xml
+          sed -i "s|@@MAVEN_MIRROR@@|${{inputs.mirror-url}}|g" ~/.m2/settings.xml
+          sed -i "s|@@MAVEN_RELEASE_REPO@@|${{inputs.release-url}}|g" ~/.m2/settings.xml
+          sed -i "s|@@MAVEN_SNAPSHOT_REPO@@|${{inputs.snapshot-url}}|g" ~/.m2/settings.xml
