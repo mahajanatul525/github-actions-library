@@ -110,13 +110,15 @@ runs:
       run: |
         # Artifactory
         ARTIFACTORY_BASE="https://trialt6dmgx.jfrog.io"
-        ARTIFACTORY_BASE_URL="https://$ARTIFACTORY_BASE/artifactory"
-        echo "artifactory-base=$ARTIFACTORY_BASE" >> $GITHUB_OUTPUT
-        echo "artifactory-username=$ARTIFACTORY_USERNAME" >> $GITHUB_OUTPUT
-        echo "artifactory-api-key=$ARTIFACTORY_API_KEY" >> $GITHUB_OUTPUT
+        ARTIFACTORY_BASE_URL="https://${ARTIFACTORY_BASE}/artifactory"
+        echo "artifactory-base=${ARTIFACTORY_BASE}" >> "$GITHUB_OUTPUT"
+        echo "artifactory-username=${ARTIFACTORY_USERNAME}" >> "$GITHUB_OUTPUT"
+        echo "artifactory-api-key=${ARTIFACTORY_API_KEY}" >> "$GITHUB_OUTPUT"
 
+        echo "DEBUG: ARTIFACTORY_BASE_URL=${ARTIFACTORY_BASE_URL}"
+        
         # Debian
-        echo "debian-repository-url=$ARTIFACTORY_BASE_URL/$TEAM-debian-dev" >> $GITHUB_OUTPUT
+        echo "debian-repository-url=${ARTIFACTORY_BASE_URL}/${TEAM}-debian-dev" >> "$GITHUB_OUTPUT"
 
         # Docker
         echo "docker-snapshot-image-base=$ARTIFACTORY_BASE/$TEAM-docker-snapshot-local/$DOCKER_NAMESPACE/$APPLICATION_NAME" >> $GITHUB_OUTPUT
