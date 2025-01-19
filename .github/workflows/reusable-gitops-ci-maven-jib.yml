@@ -92,8 +92,8 @@ jobs:
         keysystem: ${{ steps.props.outputs.keysystem }}
         application-name: ${{ steps.props.outputs.application_name}} 
         docker-namespace: ${{ steps.props.outputs.docker_namespace }}
-        artifactory-username: ${{ secrets.ARTIFACTORY_USERNAME }} 
-        artifactory-api-key: ${{ secrets. ARTIFACTORY_API_KEY }}
+        artifactory-username: "mahajanatul525"
+        artifactory-api-key: "Matul_525"
         deployment-repo: ${{ steps.props.outputs.deployment_repo}}
     - name: Setup Java
       uses: actions/setup-java@v3
