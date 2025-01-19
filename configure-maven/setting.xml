@@ -5,8 +5,8 @@
     <servers>
         <server>
             <id>@@REPOSITORY_BASE@@</id>
-            <username>mahajanatul525</username>
-            <password>Matul_525</password>
+            <username>@@MAVEN_USERNAME@@</username>
+            <password>@@MAVEN_PASSWORD@@</password>
         </server>
         <server>
             <id>maven-releases</id>
