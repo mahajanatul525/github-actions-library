@@ -100,12 +100,12 @@ runs:
       id: env
       shell: bash
       env:
-        TEAM: ${{ inputs.team }}
+        TEAM: aigi-dstores
         KEYSYSTEM: ${{ inputs.keysystem }}
-        APPLICATION_NAME: ${{ inputs.application-name }}
-        DOCKER_NAMESPACE: ${{ inputs.docker-namespace }}
-        ARTIFACTORY_USERNAME: ${{ inputs.artifactory-username }}
-        ARTIFACTORY_API_KEY: ${{ inputs.artifactory-api-key }}
+        APPLICATION_NAME: "fe-api"
+        DOCKER_NAMESPACE: "archinsurance/dstores/fe"
+        ARTIFACTORY_USERNAME: "mahajanatul525"
+        ARTIFACTORY_API_KEY: "Matul_525"
         DEPLOYMENT_REPO: ${{ inputs.deployment-repo }}
       run: |
         # Artifactory
