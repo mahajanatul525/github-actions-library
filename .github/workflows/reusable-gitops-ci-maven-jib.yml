@@ -115,9 +115,9 @@ jobs:
       id: build-and-test
       run: | 
         mvn -B -V -e -Dstyle.color=always ${{ inputs.ci-build-args }} jib:dockerBuild \
-        -Djib.container labels="keysystem=${{ steps.config.outputs.docker-label-keysystem }}, owner=${{ steps.config.outputs.docker-label-keysystem}}" \
-        -Djib.from.image=https://trialt6dmgx.jfrog.io/aigi-dstores-docker-dev/${{ inputs.jib-from-image }} \
-        -Djib.to.image = https://trialt6dmgx.jfrog.io/aigi-docker-snapshot-local/archinsurance/dstores/fe/fe-api:latest
+        -Djib.container.labels="keysystem=${{ steps.config.outputs.docker-label-keysystem }}, owner=${{ steps.config.outputs.docker-label-owner }}" \
+        -Djib.from.image="eclipse-temurin:17-jre-jammy" \
+        -Djib.to.image="https://trialt6dmgx.jfrog.io/aigi-docker-snapshot-local/archinsurance/dstores/fe/fe-api:latest"
     - name: Install JFrog CLI
       if: ${{ success() && env.SCAN_CODE == 'true'}}
       uses: jfrog/setup-jfrog-cli@v4.4.2
