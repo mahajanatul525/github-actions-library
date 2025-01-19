@@ -112,8 +112,8 @@ runs:
         ARTIFACTORY_BASE="https://trialt6dmgx.jfrog.io"
         ARTIFACTORY_BASE_URL="${ARTIFACTORY_BASE}/artifactory"
         echo "artifactory-base=${ARTIFACTORY_BASE}" >> "$GITHUB_OUTPUT"
-        echo "artifactory-username=${ARTIFACTORY_USERNAME}" >> "$GITHUB_OUTPUT"
-        echo "artifactory-api-key=${ARTIFACTORY_API_KEY}" >> "$GITHUB_OUTPUT"
+        echo "artifactory-username=$ARTIFACTORY_USERNAME" >> "$GITHUB_OUTPUT"
+        echo "artifactory-api-key=$ARTIFACTORY_API_KEY" >> "$GITHUB_OUTPUT"
 
         echo "DEBUG: ARTIFACTORY_BASE_URL=${ARTIFACTORY_BASE_URL}"
         
