@@ -65,7 +65,8 @@ on:
         required: false
 env:
   DT_TOKEN: ${{ secrets.DT_TOKEN }}
-  PUBLISH_IMAGE: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || inputs.always-publish }}
+  PUBLISH_IMAGE: true
+  # PUBLISH_IMAGE: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || inputs.always-publish }}
   SCAN_CODE: ${{ (github.event_name == 'push' && github.ref == 'refs/heads/main') || github.event_name == 'pull_request' || inputs.always-scan }}
 jobs:
   build-and-test:
