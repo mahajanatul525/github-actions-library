@@ -105,10 +105,10 @@ jobs:
       id: configure-maven
       uses: mahajanatul525/github-actions-library/configure-maven@master
       with:
-        repository-base: ${{ steps.config.outputs.artifactory-base }}
-        mirror-url: ${{ steps.config.outputs.maven-mirror-url}}
-        release-url: ${{ steps.config.outputs.maven-release-url}}
-        snapshot-url: ${{ steps.config.outputs.maven-snapshot-url}} 
+        repository-base: https://trialt6dmgx.jfrog.io
+        mirror-url: https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-dev
+        release-url: https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-release-local/
+        snapshot-url: https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-snapshot-local/
         username: ${{ steps.config.outputs.artifactory-username}}
         password: ${{ steps.config.outputs.artifactory-api-key}}
     - name: Build & Test
