@@ -142,7 +142,7 @@ jobs:
       id: generate-deployment-token
       with:
         app_id: ${{ secrets.GITHUB_CI_APP_ID}}
-        private key: ${{ secrets.GITHUB_CI_APP_PRIVATE_KEY }}
+        private_key: ${{ secrets.GITHUB_CI_APP_PRIVATE_KEY }}
         repository: ${{ steps.props.outputs.deployment_repo}}
     - name: Notify Deployment Repository
       if: ${{ success() && env.PUBLISH_IMAGE == 'true'}}
