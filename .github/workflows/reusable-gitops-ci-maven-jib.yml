@@ -93,7 +93,6 @@ jobs:
       uses: actions/checkout@v4
       with:
         fetch-depth: ${{ fromJSON('["1", "0"]') [env.SCAN_CODE == 'true'] }}
-      run: echo "Repository checked out with fetch-depth: ${{ fromJSON('["1", "0"]') [env.SCAN_CODE == 'true'] }}"
 
     - name: Read Project Properties
       id: props
@@ -101,7 +100,6 @@ jobs:
       with:
         path: ${{ inputs.dotenv-path }}
         log-variables: true
-      run: echo "Loaded dotenv variables from: ${{ inputs.dotenv-path }}"
 
     - name: Configure Workflow Environment
       id: config
@@ -114,7 +112,6 @@ jobs:
         artifactory-username: ${{ secrets.ARTIFACTORY_USERNAME }}
         artifactory-api-key: ${{ secrets.ARTIFACTORY_API_KEY }}
         deployment-repo: ${{ steps.props.outputs.deployment_repo }}
-      run: echo "Workflow environment configured for team: ${{ steps.props.outputs.team }}"
 
     - name: Setup Java
       uses: actions/setup-java@v3
@@ -122,7 +119,6 @@ jobs:
         distribution: temurin
         java-version: ${{ inputs.java-version }}
         cache: maven
-      run: echo "Java version ${{ inputs.java-version }} set up with Maven cache enabled"
 
     - name: Configure Maven Environment
       id: configure-maven
@@ -134,7 +130,6 @@ jobs:
         snapshot-url: https://trialt6dmgx.jfrog.io/artifactory/aigi-dstores-maven-snapshot-local/
         username: ${{ secrets.ARTIFACTORY_USERNAME }}
         password: ${{ secrets.ARTIFACTORY_API_KEY }}
-      run: echo "Maven environment configured with base URL: https://trialt6dmgx.jfrog.io"
 
     - name: Build and Test
       id: build-and-test
@@ -151,7 +146,6 @@ jobs:
       uses: jfrog/setup-jfrog-cli@v4.4.2
       with:
         version: ${{ inputs.jfrog-cli-version }}
-      run: echo "JFrog CLI version ${{ inputs.jfrog-cli-version }} installed"
 
     - name: Publish Docker Image
       if: ${{ success() && env.PUBLISH_IMAGE == 'true' }}
@@ -191,4 +185,3 @@ jobs:
               "build_tag": "${{ steps.config.outputs.docker-build-tag }}"
             }
           }
-        run: echo "Deployment repository notified successfully"
