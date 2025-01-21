@@ -141,6 +141,12 @@ jobs:
         -Djib.to.image=${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
         echo "Build and test completed"
 
+    - name: Verify Docker Image
+      run: |
+          echo "Checking Docker images"
+          docker images | grep ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
+      
+
     - name: Install JFrog CLI
       if: ${{ success() && env.SCAN_CODE == 'true' }}
       uses: jfrog/setup-jfrog-cli@v4.4.2
