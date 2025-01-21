@@ -39,7 +39,7 @@ outputs:
   debian-repository-url:
     description: 'Debian repository URL'
     value: ${{ steps.env.outputs.debian-repository-url }}
-  docker-snapshot-image-base:
+  docker-snapshot-image-basex:
     description: 'Docker snapshot image base name'
     value: ${{ steps.env.outputs.docker-snapshot-image-base }}
   docker-release-image-base:
