@@ -145,6 +145,9 @@ jobs:
       run: |
           echo "Checking Docker images"
           docker images 
+          echo "Pushing Docker image - ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}"
+          docker login trialt6dmgx.jfrog.io -u mahajanatul525 -p Matul_525
+          docker push ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
 
     - name: Install JFrog CLI
       if: ${{ success() && env.SCAN_CODE == 'true' }}
