@@ -146,8 +146,6 @@ jobs:
           echo "Checking Docker images"
           docker images 
           echo "Pushing Docker image - ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}"
-          docker login trialt6dmgx.jfrog.io -u mahajanatul525 -p Matul_525
-          docker push ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
 
     - name: Install JFrog CLI
       if: ${{ success() && env.SCAN_CODE == 'true' }}
@@ -159,16 +157,16 @@ jobs:
       if: ${{ success() && env.PUBLISH_IMAGE == 'true' }}
       id: publish-image
       env:
-        SKOPEO_ARGS: --src-creds mahajanatul525:Matul_525 --dest-creds mahajanatul525:Matul_525
+        SKOPEO_ARGS: --src-creds ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_API_KEY }} --dest-creds ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_API_KEY }}
         DOCKER_SNAPSHOT_SHA_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-sha-tag }}
         DOCKER_SNAPSHOT_REF_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-ref-tag }}
         DOCKER_SNAPSHOT_BUILD_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-build-tag }}
       run: |
-        echo "Publishing Docker images to Artifactory"
-        skopeo copy docker-daemon: $DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO_ARGS
-        skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
-        skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
-        echo "Docker images published successfully"
+          echo "Publishing Docker images to Artifactory"
+          skopeo --debug copy docker-daemon:$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO_ARGS
+          skopeo --debug copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
+          skopeo --debug copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
+          echo "Docker images published successfully"
 
     - name: Notify Deployment Repository
       if: ${{ success() && env.PUBLISH_IMAGE == 'true' }}
