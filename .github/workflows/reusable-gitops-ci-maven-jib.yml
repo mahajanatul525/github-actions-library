@@ -144,8 +144,7 @@ jobs:
     - name: Verify Docker Image
       run: |
           echo "Checking Docker images"
-          docker images | grep ${{ steps.config.outputs.docker-snapshot-image-base}}:${{ steps.config.outputs.docker-sha-tag}}
-      
+          docker images 
 
     - name: Install JFrog CLI
       if: ${{ success() && env.SCAN_CODE == 'true' }}
