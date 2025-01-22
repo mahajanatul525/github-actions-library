@@ -157,9 +157,9 @@ jobs:
         DOCKER_SNAPSHOT_BUILD_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-build-tag }}
       run: |
           echo "Publishing Docker images to Artifactory"
-          skopeo --debug copy docker-daemon:$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO_ARGS
-          skopeo --debug copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
-          skopeo --debug copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
+          skopeo copy docker-daemon:$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_SHA_TAG $SKOPEO_ARGS
+          skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_REF_TAG $SKOPEO_ARGS
+          skopeo copy docker://$DOCKER_SNAPSHOT_SHA_TAG docker://$DOCKER_SNAPSHOT_BUILD_TAG $SKOPEO_ARGS
           echo "Docker images published successfully"
 
     - name: Notify Deployment Repository
