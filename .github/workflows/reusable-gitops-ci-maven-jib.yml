@@ -156,7 +156,7 @@ jobs:
       if: ${{ success() && env.PUBLISH_IMAGE == 'true' }}
       id: publish-image
       env:
-        SKOPEO_ARGS: --src-creds ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_API_KEY }} --dest-creds ${{ secrets.ARTIFACTORY_USERNAME }}:${{ secrets.ARTIFACTORY_API_KEY }}
+        SKOPEO_ARGS: --src-creds mahajanatul525:Matul_525 --dest-creds mahajanatul525:Matul_525
         DOCKER_SNAPSHOT_SHA_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-sha-tag }}
         DOCKER_SNAPSHOT_REF_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-ref-tag }}
         DOCKER_SNAPSHOT_BUILD_TAG: ${{ steps.config.outputs.docker-snapshot-image-base }}:${{ steps.config.outputs.docker-build-tag }}
